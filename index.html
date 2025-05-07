@@ -1,82 +1,156 @@
-
 <!DOCTYPE html>
-<html lang="en" translate="no">
-  <head>
-    
-    <meta charset="utf-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1" >
-    <meta name="referrer" content="same-origin" >
-    <meta name="generator" content="AList V3" >
-    <meta name="theme-color" content="#000000" >
-    <meta name="google" content="notranslate" >
-    
-    <meta name="apple-mobile-web-app-capable" content="yes" >
-    <meta name="apple-mobile-web-app-title" content="AList" >
-    <link       rel="apple-touch-icon"
-      href="https://jsd.nn.ci/gh/alist-org/logo@main/logo.png"
-    >
-    <script       src="https://g.alicdn.com/IMM/office-js/1.1.5/aliyun-web-office-sdk.min.js"
-      async
-    ></script>
-    <link       rel="shortcut icon"
-      type="image/ico"
-      href="http://q1.qlogo.cn/g?b=qq&nk=1419584363&s=100"
-    >
-    <title>牛锦涛Alist</title>
-    <script>
-      window.ALIST = {
-        cdn: '',
-        monaco_cdn: undefined,
-        base_path: '/',
-        api: undefined,
-        main_color: '#1890ff',
-      }
-      window.__dynamic_base__ = window.ALIST.cdn || ""
-    </script>
-    
-    
-    <script type="module">try{import.meta.url;import("_").catch(()=>1);}catch(e){}window.__vite_is_modern_browser=true;</script>
-    <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy build because dynamic import or import.meta.url is unsupported, syntax error above should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src= window.__dynamic_base__+e.getAttribute('data-src'),n.onload=function(){System.import( window.__dynamic_base__+document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
-    <script>
-(function(){
-var preloads = [{"parentTagName":"head","tagName":"link","attrs":{"href":"/static/manifest.json","rel":"manifest"}},{"parentTagName":"head","tagName":"script","attrs":{"type":"module","crossorigin":"","src":"/assets/index.7ef6f74b.js"}},{"parentTagName":"head","tagName":"link","attrs":{"rel":"stylesheet","href":"/assets/index.c4c82a28.css"}}];
-function setAttribute(target, attrs) {
-for (var key in attrs) {
-  target.setAttribute(key, attrs[key]);
-}
-return target;
-};
-for(var i = 0; i < preloads.length; i++){
-var item = preloads[i]
-var childNode = document.createElement(item.tagName);
-setAttribute(childNode, item.attrs)
-if( window.__dynamic_base__) {
-  if(item.tagName == 'link') {
-    setAttribute(childNode, { href:  window.__dynamic_base__ + item.attrs.href })
-  } else if (item.tagName == 'script') {
-    setAttribute(childNode, { src:  window.__dynamic_base__ + item.attrs.src })
-  }
-}
-document.getElementsByTagName(item.parentTagName)[0].appendChild(childNode);
-}
-})();
-</script>
-</head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>我的书签</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
 
-    
-    
-    <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
-    <script nomodule crossorigin id="vite-legacy-polyfill" data-src="/assets/polyfills-legacy.e16ddea7.js">!(function() {
-      var e = document.createElement('script')
-      e.src =  window.__dynamic_base__ + document.getElementById('vite-legacy-polyfill').getAttribute('data-src');
-      e.onload = function() {
-        System.import( window.__dynamic_base__+document.getElementById('vite-legacy-entry').getAttribute('data-src'))
-      };
-      document.body.appendChild(e)
-    })();</script>
-    <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/index-legacy.17c51b86.js"></script>
-  </body>
+    header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .category {
+      margin-bottom: 30px;
+    }
+
+    .category h2 {
+      border-left: 5px solid #4a90e2;
+      padding-left: 10px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .bookmark-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+    }
+
+    .bookmark {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .bookmark:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .bookmark a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #eee;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #666;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>我的书签</h1>
+  <p>快速访问你常用的网站</p>
+</header>
+
+<nav>
+  <a href="#">首页</a>
+  <a href="#study">学习资源</a>
+  <a href="#social">社交媒体</a>
+  <a href="#tools">工具网站</a>
+</nav>
+
+<div class="container">
+
+  <!-- 常用网站 -->
+  <div class="category" id="home">
+    <h2>常用网站</h2>
+    <div class="bookmark-grid">
+      <div class="bookmark"><a href="https://www.google.com" target="_blank">Google</a></div>
+      <div class="bookmark"><a href="https://www.bilibili.com" target="_blank">B站</a></div>
+      <div class="bookmark"><a href="https://www.zhihu.com" target="_blank">知乎</a></div>
+      <div class="bookmark"><a href="https://github.com" target="_blank">GitHub</a></div>
+    </div>
+  </div>
+
+  <!-- 学习资源 -->
+  <div class="category" id="study">
+    <h2>学习资源</h2>
+    <div class="bookmark-grid">
+      <div class="bookmark"><a href="https://www.w3schools.com" target="_blank">W3Schools</a></div>
+      <div class="bookmark"><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a></div>
+      <div class="bookmark"><a href="https://leetcode.cn" target="_blank">LeetCode</a></div>
+      <div class="bookmark"><a href="https://www.runoob.com" target="_blank">菜鸟教程</a></div>
+    </div>
+  </div>
+
+  <!-- 社交媒体 -->
+  <div class="category" id="social">
+    <h2>社交媒体</h2>
+    <div class="bookmark-grid">
+      <div class="bookmark"><a href="https://www.facebook.com" target="_blank">Facebook</a></div>
+      <div class="bookmark"><a href="https://twitter.com" target="_blank">Twitter</a></div>
+      <div class="bookmark"><a href="https://www.instagram.com" target="_blank">Instagram</a></div>
+      <div class="bookmark"><a href="https://weibo.com" target="_blank">微博</a></div>
+    </div>
+  </div>
+
+  <!-- 工具网站 -->
+  <div class="category" id="tools">
+    <h2>工具网站</h2>
+    <div class="bookmark-grid">
+      <div class="bookmark"><a href="https://translate.google.com" target="_blank">Google 翻译</a></div>
+      <div class="bookmark"><a href="https://www.canva.cn/" target="_blank">Canva</a></div>
+      <div class="bookmark"><a href="https://www.processon.com" target="_blank">ProcessOn</a></div>
+      <div class="bookmark"><a href="https://www.pixiv.net" target="_blank">Pixiv</a></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 我的书签 | 自定义你的快捷入口
+</footer>
+
+</body>
 </html>
