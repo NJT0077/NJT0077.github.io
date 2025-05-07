@@ -5,153 +5,239 @@
   <title>我的资源库</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      background-color: #f0f9eb; /* 背景颜色 */
       margin: 0;
       padding: 0;
     }
 
     header {
+      background-color: #fff;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 200px;
+    }
+
+    .search-bar button {
+      padding: 8px 15px;
       background-color: #4a90e2;
       color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .search-bar button:hover {
+      background-color: #3b78cc;
+    }
+
+    .folder-container {
+      max-width: 800px;
+      margin: 20px auto;
       padding: 20px;
-      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    nav {
-      background-color: #333;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
+    .folder {
+      margin-bottom: 10px;
+      cursor: pointer;
     }
 
-    nav a {
-      color: white;
-      padding: 14px 20px;
-      text-decoration: none;
-      text-align: center;
+    .folder i {
+      color: #ffcc00;
+      margin-right: 5px;
     }
 
-    nav a:hover {
-      background-color: #575757;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .category {
-      margin-bottom: 40px;
-    }
-
-    .category h2 {
-      border-left: 5px solid #4a90e2;
-      padding-left: 10px;
+    .folder span {
       color: #333;
+      font-size: 16px;
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 10px;
+    .sub-folder {
+      margin-left: 20px;
+      display: none;
     }
 
-    .card {
-      background-color: white;
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 15px;
-      text-align: center;
-      transition: transform 0.2s;
+    .sub-folder i {
+      color: #ffcc00;
+      margin-right: 5px;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card a {
-      text-decoration: none;
+    .sub-folder span {
       color: #333;
-      font-weight: bold;
-    }
-
-    footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 15px;
       font-size: 14px;
-      color: #666;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background-color: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 5px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #fff;
+      margin-top: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>我的资源库</h1>
-  <p>像阿虚同学一样整理你常用的网站</p>
+  <div class="logo">我的资源库</div>
+  <div class="search-bar">
+    <input type="text" placeholder="搜索储物间或公众号 📱">
+    <button>搜索历史文章 🔍</button>
+  </div>
 </header>
 
-<nav>
-  <a href="#software">软件资源</a>
-  <a href="#study">学习资源</a>
-  <a href="#tools">效率工具</a>
-  <a href="#websites">实用网站</a>
-</nav>
-
-<div class="container">
-
-  <!-- 软件资源 -->
-  <div class="category" id="software">
-    <h2>软件资源</h2>
-    <div class="card-grid">
-      <div class="card"><a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a></div>
-      <div class="card"><a href="https://obsproject.com/" target="_blank">OBS Studio</a></div>
-      <div class="card"><a href="https://www.videolan.org/vlc/" target="_blank">VLC 播放器</a></div>
-      <div class="card"><a href="https://www.mozilla.org/firefox/" target="_blank">Firefox 浏览器</a></div>
+<div class="folder-container">
+  <!-- 文件夹结构 -->
+  <div class="folder">
+    <i class="fas fa-folder"></i>
+    01 电影 / 电视剧 / 动漫 / 纪录片
+  </div>
+  <div class="folder">
+    <i class="fas fa-folder"></i>
+    02 漫画 / 电子书 / 音乐 / 听书
+  </div>
+  <div class="folder">
+    <i class="fas fa-folder"></i>
+    03 BT磁力搜索与下载
+  </div>
+  <div class="folder">
+    <i class="fas fa-folder"></i>
+    04 免费AI工具
+  </div>
+  <div class="folder">
+    <i class="fas fa-folder"></i>
+    05 特惠福利精选 🔥
+  </div>
+  <div class="folder">
+    <i class="fas fa-folder"></i>
+    06 电脑常用
+    <div class="sub-folder">
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        01.软件大全
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        02.Adobe软件
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        03.浏览器相关
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        04.文档相关
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        05.视频相关
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        06.音频相关
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        07.图片相关
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        08.系统相关
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        09.硬件相关
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        10.社交聊天
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        11.下载相关
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        12.压缩相关
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        13.输入法
+      </div>
+      <div class="sub-folder-item">
+        <i class="fas fa-folder"></i>
+        14.安卓模拟器
+      </div>
     </div>
   </div>
-
-  <!-- 学习资源 -->
-  <div class="category" id="study">
-    <h2>学习资源</h2>
-    <div class="card-grid">
-      <div class="card"><a href="https://www.w3schools.com" target="_blank">W3Schools</a></div>
-      <div class="card"><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a></div>
-      <div class="card"><a href="https://leetcode.cn" target="_blank">LeetCode</a></div>
-      <div class="card"><a href="https://www.runoob.com" target="_blank">菜鸟教程</a></div>
-    </div>
-  </div>
-
-  <!-- 效率工具 -->
-  <div class="category" id="tools">
-    <h2>效率工具</h2>
-    <div class="card-grid">
-      <div class="card"><a href="https://translate.google.com" target="_blank">Google 翻译</a></div>
-      <div class="card"><a href="https://canva.cn" target="_blank">Canva 设计</a></div>
-      <div class="card"><a href="https://processon.com" target="_blank">ProcessOn 思维导图</a></div>
-      <div class="card"><a href="https://via-app.cn" target="_blank">Via 浏览器插件</a></div>
-    </div>
-  </div>
-
-  <!-- 实用网站 -->
-  <div class="category" id="websites">
-    <h2>实用网站</h2>
-    <div class="card-grid">
-      <div class="card"><a href="https://www.pixiv.net" target="_blank">Pixiv</a></div>
-      <div class="card"><a href="https://www.zhihu.com" target="_blank">知乎</a></div>
-      <div class="card"><a href="https://www.bilibili.com" target="_blank">B站</a></div>
-      <div class="card"><a href="https://github.com" target="_blank">GitHub</a></div>
-    </div>
-  </div>
-
 </div>
 
-<footer>
-  &copy; 2025 我的资源库 | 参考了阿虚同学的设计风格 [[3]]
+<!-- 侧边栏 -->
+<div class="sidebar">
+  <h3>公告</h3>
+  <ul>
+    <li><a href="#">支持</a></li>
+  </ul>
+</div>
+
+<!-- 底部 -->
+<footer class="footer">
+  <p>© 2025 我的资源库 | 所有权利保留</p>
 </footer>
 
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </body>
 </html>
