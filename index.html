@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>我的书签</title>
+  <title>我的资源库</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
     }
@@ -21,15 +21,15 @@
     nav {
       background-color: #333;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
     }
 
     nav a {
-      float: left;
-      display: block;
       color: white;
-      text-align: center;
       padding: 14px 20px;
       text-decoration: none;
+      text-align: center;
     }
 
     nav a:hover {
@@ -37,40 +37,42 @@
     }
 
     .container {
+      max-width: 1200px;
+      margin: auto;
       padding: 20px;
     }
 
     .category {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .category h2 {
       border-left: 5px solid #4a90e2;
       padding-left: 10px;
-      margin-bottom: 15px;
       color: #333;
     }
 
-    .bookmark-grid {
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 15px;
+      margin-top: 10px;
     }
 
-    .bookmark {
+    .card {
       background-color: white;
-      border: 1px solid #ddd;
-      border-radius: 5px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       padding: 15px;
       text-align: center;
-      transition: box-shadow 0.3s ease;
+      transition: transform 0.2s;
     }
 
-    .bookmark:hover {
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .card:hover {
+      transform: translateY(-5px);
     }
 
-    .bookmark a {
+    .card a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
@@ -82,74 +84,73 @@
       padding: 15px;
       font-size: 14px;
       color: #666;
-      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>我的书签</h1>
-  <p>快速访问你常用的网站</p>
+  <h1>我的资源库</h1>
+  <p>像阿虚同学一样整理你常用的网站</p>
 </header>
 
 <nav>
-  <a href="#">首页</a>
+  <a href="#software">软件资源</a>
   <a href="#study">学习资源</a>
-  <a href="#social">社交媒体</a>
-  <a href="#tools">工具网站</a>
+  <a href="#tools">效率工具</a>
+  <a href="#websites">实用网站</a>
 </nav>
 
 <div class="container">
 
-  <!-- 常用网站 -->
-  <div class="category" id="home">
-    <h2>常用网站</h2>
-    <div class="bookmark-grid">
-      <div class="bookmark"><a href="https://www.google.com" target="_blank">Google</a></div>
-      <div class="bookmark"><a href="https://www.bilibili.com" target="_blank">B站</a></div>
-      <div class="bookmark"><a href="https://www.zhihu.com" target="_blank">知乎</a></div>
-      <div class="bookmark"><a href="https://github.com" target="_blank">GitHub</a></div>
+  <!-- 软件资源 -->
+  <div class="category" id="software">
+    <h2>软件资源</h2>
+    <div class="card-grid">
+      <div class="card"><a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a></div>
+      <div class="card"><a href="https://obsproject.com/" target="_blank">OBS Studio</a></div>
+      <div class="card"><a href="https://www.videolan.org/vlc/" target="_blank">VLC 播放器</a></div>
+      <div class="card"><a href="https://www.mozilla.org/firefox/" target="_blank">Firefox 浏览器</a></div>
     </div>
   </div>
 
   <!-- 学习资源 -->
   <div class="category" id="study">
     <h2>学习资源</h2>
-    <div class="bookmark-grid">
-      <div class="bookmark"><a href="https://www.w3schools.com" target="_blank">W3Schools</a></div>
-      <div class="bookmark"><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a></div>
-      <div class="bookmark"><a href="https://leetcode.cn" target="_blank">LeetCode</a></div>
-      <div class="bookmark"><a href="https://www.runoob.com" target="_blank">菜鸟教程</a></div>
+    <div class="card-grid">
+      <div class="card"><a href="https://www.w3schools.com" target="_blank">W3Schools</a></div>
+      <div class="card"><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a></div>
+      <div class="card"><a href="https://leetcode.cn" target="_blank">LeetCode</a></div>
+      <div class="card"><a href="https://www.runoob.com" target="_blank">菜鸟教程</a></div>
     </div>
   </div>
 
-  <!-- 社交媒体 -->
-  <div class="category" id="social">
-    <h2>社交媒体</h2>
-    <div class="bookmark-grid">
-      <div class="bookmark"><a href="https://www.facebook.com" target="_blank">Facebook</a></div>
-      <div class="bookmark"><a href="https://twitter.com" target="_blank">Twitter</a></div>
-      <div class="bookmark"><a href="https://www.instagram.com" target="_blank">Instagram</a></div>
-      <div class="bookmark"><a href="https://weibo.com" target="_blank">微博</a></div>
-    </div>
-  </div>
-
-  <!-- 工具网站 -->
+  <!-- 效率工具 -->
   <div class="category" id="tools">
-    <h2>工具网站</h2>
-    <div class="bookmark-grid">
-      <div class="bookmark"><a href="https://translate.google.com" target="_blank">Google 翻译</a></div>
-      <div class="bookmark"><a href="https://www.canva.cn/" target="_blank">Canva</a></div>
-      <div class="bookmark"><a href="https://www.processon.com" target="_blank">ProcessOn</a></div>
-      <div class="bookmark"><a href="https://www.pixiv.net" target="_blank">Pixiv</a></div>
+    <h2>效率工具</h2>
+    <div class="card-grid">
+      <div class="card"><a href="https://translate.google.com" target="_blank">Google 翻译</a></div>
+      <div class="card"><a href="https://canva.cn" target="_blank">Canva 设计</a></div>
+      <div class="card"><a href="https://processon.com" target="_blank">ProcessOn 思维导图</a></div>
+      <div class="card"><a href="https://via-app.cn" target="_blank">Via 浏览器插件</a></div>
+    </div>
+  </div>
+
+  <!-- 实用网站 -->
+  <div class="category" id="websites">
+    <h2>实用网站</h2>
+    <div class="card-grid">
+      <div class="card"><a href="https://www.pixiv.net" target="_blank">Pixiv</a></div>
+      <div class="card"><a href="https://www.zhihu.com" target="_blank">知乎</a></div>
+      <div class="card"><a href="https://www.bilibili.com" target="_blank">B站</a></div>
+      <div class="card"><a href="https://github.com" target="_blank">GitHub</a></div>
     </div>
   </div>
 
 </div>
 
 <footer>
-  &copy; 2025 我的书签 | 自定义你的快捷入口
+  &copy; 2025 我的资源库 | 参考了阿虚同学的设计风格 [[3]]
 </footer>
 
 </body>
